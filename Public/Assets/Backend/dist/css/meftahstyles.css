@@ -1,0 +1,13 @@
+.select2-results__option
+{
+	direction: rtl;
+}
+.select2-search__field
+{
+	border-width: 0 !important;
+}
+.select2-selection__choice
+{
+	float: right !important;
+	direction: rtl;
+}

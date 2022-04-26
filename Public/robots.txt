@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /feed
+Disallow: /shipping
+Disallow: /payment
+Disallow: /rss
+Disallow: /cart/*
+Disallow: /checkout/*
+Disallow: /compare/*
+Disallow: /user/*
+Disallow: /wishlist/*
+Disallow: *utm_*
+Disallow: /search?q=*
+Disallow: /profile/*
+
+Sitemap: https://usedkala.com/sitemap.xml

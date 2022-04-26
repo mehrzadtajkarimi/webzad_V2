@@ -1,0 +1,159 @@
+/**
+ * Copyright (c) Tiny Technologies, Inc. All rights reserved.
+ * Licensed under the LGPL or a commercial license.
+ * For LGPL see License.txt in the project root for license information.
+ * For commercial licenses see https://www.tiny.cloud/
+ */
+
+import { Gui, GuiFactory, InlineView, Layout, LayoutInset, NodeAnchorSpec } from '@ephox/alloy';
+import { Arr, Optional } from '@ephox/katamari';
+import { SugarBody, SugarElement } from '@ephox/sugar';
+
+import Editor from 'tinymce/core/api/Editor';
+import { NotificationApi, NotificationManagerImpl, NotificationSpec } from 'tinymce/core/api/NotificationManager';
+import Delay from 'tinymce/core/api/util/Delay';
+
+import { UiFactoryBackstage } from '../backstage/Backstage';
+import { Notification } from '../ui/general/Notification';
+
+interface Extras {
+  readonly backstage: UiFactoryBackstage;
+}
+
+export default (editor: Editor, extras: Extras, uiMothership: Gui.GuiSystem): NotificationManagerImpl => {
+  const sharedBackstage = extras.backstage.shared;
+
+  const getLayoutDirection = (rel: 'tc-tc' | 'bc-bc' | 'bc-tc' | 'tc-bc') => {
+    switch (rel) {
+      case 'bc-bc':
+        return LayoutInset.south;
+      case 'tc-tc':
+        return LayoutInset.north;
+      case 'tc-bc':
+        return Layout.north;
+      case 'bc-tc':
+      default:
+        return Layout.south;
+    }
+  };
+
+  // Since the viewport will change based on the present notifications, we need to move them all to the
+  // top left of the viewport to give an accurate size measurement so we can position them later.
+  const prePositionNotifications = (notifications: NotificationApi[]) => {
+    Arr.each(notifications, (notification) => notification.moveTo(0, 0));
+  };
+
+  const positionNotifications = (notifications: NotificationApi[]) => {
+    if (notifications.length > 0) {
+      Arr.head(notifications).each((firstItem) => firstItem.moveRel(null, 'banner'));
+      Arr.each(notifications, (notification, index) => {
+        if (index > 0) {
+          notification.moveRel(notifications[index - 1].getEl(), 'bc-tc');
+        }
+      });
+    }
+  };
+
+  const reposition = (notifications: NotificationApi[]) => {
+    prePositionNotifications(notifications);
+    positionNotifications(notifications);
+  };
+
+  const open = (settings: NotificationSpec, closeCallback: () => void): NotificationApi => {
+    const hideCloseButton = !settings.closeButton && settings.timeout && (settings.timeout > 0 || settings.timeout < 0);
+
+    const close = () => {
+      closeCallback();
+      InlineView.hide(notificationWrapper);
+    };
+
+    const notification = GuiFactory.build(
+      Notification.sketch({
+        text: settings.text,
+        level: Arr.contains([ 'success', 'error', 'warning', 'warn', 'info' ], settings.type) ? settings.type : undefined,
+        progress: settings.progressBar === true,
+        icon: Optional.from(settings.icon),
+        closeButton: !hideCloseButton,
+        onAction: close,
+        iconProvider: sharedBackstage.providers.icons,
+        translationProvider: sharedBackstage.providers.translate
+      })
+    );
+
+    const notificationWrapper = GuiFactory.build(
+      InlineView.sketch({
+        dom: {
+          tag: 'div',
+          classes: [ 'tox-notifications-container' ]
+        },
+        lazySink: sharedBackstage.getSink,
+        fireDismissalEventInstead: { },
+        ...sharedBackstage.header.isPositionedAtTop() ? { } : { fireRepositionEventInstead: { }}
+      })
+    );
+
+    uiMothership.add(notificationWrapper);
+
+    if (settings.timeout > 0) {
+      Delay.setTimeout(() => {
+        close();
+      }, settings.timeout);
+    }
+
+    return {
+      close,
+      moveTo: (x: number, y: number) => {
+        InlineView.showAt(notificationWrapper, GuiFactory.premade(notification), {
+          anchor: {
+            type: 'makeshift',
+            x,
+            y
+          }
+        });
+      },
+      moveRel: (element: Element, rel: 'tc-tc' | 'bc-bc' | 'bc-tc' | 'tc-bc' | 'banner') => {
+        if (rel !== 'banner') {
+          const layoutDirection = getLayoutDirection(rel);
+          const nodeAnchor: NodeAnchorSpec = {
+            type: 'node',
+            root: SugarBody.body(),
+            node: Optional.some(SugarElement.fromDom(element)),
+            layouts: {
+              onRtl: () => [ layoutDirection ],
+              onLtr: () => [ layoutDirection ]
+            }
+          };
+          InlineView.showAt(notificationWrapper, GuiFactory.premade(notification), { anchor: nodeAnchor });
+        } else {
+          InlineView.showAt(notificationWrapper, GuiFactory.premade(notification), { anchor: sharedBackstage.anchors.banner() });
+        }
+      },
+      text: (nuText: string) => {
+        // check if component is still mounted
+        Notification.updateText(notification, nuText);
+      },
+      settings,
+      getEl: () => notification.element.dom,
+      progressBar: {
+        value: (percent: number) => {
+          Notification.updateProgress(notification, percent);
+        }
+      }
+    };
+  };
+
+  const close = (notification: NotificationApi) => {
+    notification.close();
+  };
+
+  const getArgs = (notification: NotificationApi) => {
+    return notification.settings;
+  };
+
+  return {
+    open,
+    close,
+    reposition,
+    getArgs
+  };
+};

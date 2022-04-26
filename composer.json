@@ -1,0 +1,19 @@
+{
+    "name": "mehrzad/webzad",
+    "authors": [
+        {
+            "name": "Mehrzad",
+            "email": "mehrzadtajkarimi@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.3",
+        "catfan/medoo": "^2.0",
+        "ghasedak/php": "^1.0",
+        "phpmailer/phpmailer": "^6.5",
+        "fzaninotto/faker": "^1.5"
+    },
+    "autoload": {
+        "psr-4": {"App\\":"App/"}
+    }
+}
