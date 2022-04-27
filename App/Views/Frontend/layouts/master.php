@@ -6,22 +6,25 @@
 </head>
 
 <body dir="rtl" class="woocommerce-active <?= $home_page_active_menu ?? '' ?>  can-uppercase" onmousemove="mover(event)">
-    <header id="masthead" class="site-header header-v1" style="background-image: none; ">
+    <header id="header-index" class="fixed-top ">
         <?php include_once BASEPATH  . 'App/Views/Frontend/layouts/includes/header.php' ?>
     </header>
 
 
-        <div id="content" class="site-content">
-            <?= $view ?>
-        </div>
+    <main id="content" class="site-content">
+        <?= $view ?>
+    </main>
 
 
 
-
-        <footer class="site-footer footer-v1">
-            <?php include_once BASEPATH  . 'App/Views/Frontend/layouts/includes/footer.php' ?>
-        </footer>
+    <div id="top">
+        <i class="fas fa-2x fa-angle-up bg-white text-muted"></i>
     </div>
+    <footer id="progress" class="bg-dark p-3 ">
+        <?php include_once BASEPATH  . 'App/Views/Frontend/layouts/includes/footer.php' ?>
+    </footer>
+
     <?php include_once BASEPATH  . 'App/Views/Frontend/layouts/includes/footerScript.php' ?>
 </body>
+
 </html>
