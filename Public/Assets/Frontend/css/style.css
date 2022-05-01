@@ -634,13 +634,13 @@ body {
 
 /*///////////////////////////////////////////////////////////*/
 
-#nemonekar #image_zoom img {
+#work_samples #image_zoom img {
     -webkit-transition: 2.5s ease-out;
     transition: 2.5s ease-out;
     position: relative;
 }
 
-#nemonekar #image_zoom img:hover {
+#work_samples #image_zoom img:hover {
     -webkit-transform: scale(1.5);
     -ms-transform: scale(1.5);
     transform: scale(1.5);
@@ -682,14 +682,14 @@ body {
 
 /*///////////////////////////////////////////////////////////*/
 
-#nemonekar .flip-box {
+#work_samples .flip-box {
     width: 150px;
     height: 150px;
     -webkit-perspective: 1000px;
     perspective: 1000px;
 }
 
-#nemonekar .flip-box-inner {
+#work_samples .flip-box-inner {
     position: relative;
     width: 100%;
     height: 100%;
@@ -700,12 +700,12 @@ body {
     transform-style: preserve-3d;
 }
 
-#nemonekar .flip-box:hover .flip-box-inner {
+#work_samples .flip-box:hover .flip-box-inner {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
-#nemonekar .flip-box-front, .flip-box-back {
+#work_samples .flip-box-front, .flip-box-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -715,12 +715,12 @@ body {
     overflow: hidden;
 }
 
-#nemonekar .flip-box-front {
+#work_samples .flip-box-front {
     background-color: transparent;
     color: #999;
 }
 
-#nemonekar .flip-box-back {
+#work_samples .flip-box-back {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }

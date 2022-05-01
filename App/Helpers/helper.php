@@ -16,9 +16,13 @@ function base_url_admin($route = null)
 {
     return  $_ENV['BASE_URL'] . 'admin/' . $route;
 }
-function asset_url($route = null)
+function asset_url_front($route = null)
 {
-    return  base_url('Assets/' . $route);
+    return  base_url('Public/Assets/Frontend/' . $route);
+}
+function asset_url_back($route = null)
+{
+    return  base_url('Public/Assets/Backend' . $route);
 }
 function view($path, $data = [], $layout = null)
 {
@@ -156,10 +160,9 @@ function view_flash_message($path, $data = [])
     echo  ob_get_clean();
 }
 
-
 function xss_clean($str)
 {
-    return filter_var(htmlspecialchars($str), FILTER_SANITIZE_STRING);
+    return filter_var(htmlspecialchars($str));
 }
 
 function dd(...$categoryLevelTwo)

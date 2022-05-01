@@ -25,4 +25,5 @@ use App\Middleware\Gate;
 Route::group(function () {
 
     Route::get('/', 'HomeController@index');
+    Route::post('/work_samples', 'HomeController@work_samples');
 });

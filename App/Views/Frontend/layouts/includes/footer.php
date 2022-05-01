@@ -35,7 +35,7 @@
 
             </div>
             <div class="col-md-4 d-flex">
-                <img src="<?= asset_url() ?>Frontend/image/mehrzad.png" alt="mehrzad" class="img-fluid d-block m-auto align-self-center">
+                <img src="<?= asset_url_front() ?>image/mehrzad.png" alt="mehrzad" class="img-fluid d-block m-auto align-self-center">
             </div>
             <div class="col-md-4 text-white">
                 <p class="border-bottom pb-3 ">درباره من :</p>

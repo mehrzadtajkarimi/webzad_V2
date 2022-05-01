@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 26, 2022 at 12:31 PM
+-- Generation Time: May 01, 2022 at 07:32 AM
 -- Server version: 8.0.28-0ubuntu4
 -- PHP Version: 8.1.2
 
@@ -291,6 +291,30 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `work_samples`
+--
+
+CREATE TABLE `work_samples` (
+  `id` int NOT NULL,
+  `type` tinyint NOT NULL,
+  `titel` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `url` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `work_samples`
+--
+
+INSERT INTO `work_samples` (`id`, `type`, `titel`, `url`, `created_at`) VALUES
+(1, 0, 'یک تست', 'http://onetest.ir/', '2022-04-29 08:38:46'),
+(3, 1, 'یوزد کالا', 'https://usedkala.com/', '2022-04-29 08:39:52'),
+(5, 2, 'وب زاد', 'http://www.webzad.ir/', '2022-04-29 08:40:49'),
+(6, 0, 'یک تست', 'http://onetest.ir/', '2022-04-29 08:38:46');
+
 --
 -- Indexes for dumped tables
 --
@@ -395,6 +419,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_UN` (`phone`);
 
 --
+-- Indexes for table `work_samples`
+--
+ALTER TABLE `work_samples`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -487,6 +517,12 @@ ALTER TABLE `tickets`
 --
 ALTER TABLE `users`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `work_samples`
+--
+ALTER TABLE `work_samples`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -10,10 +10,10 @@
                         webzad</h3>
                 </div>
                 <div id="logo-layer3" class=" position-relative d-none d-sm-block">
-                    <img src="<?= asset_url() ?>Frontend/image/logo--1.svg" alt="logo" class="position-absolute  wow fadeIn" data-wow-delay="1s" data-wow-duration="5s">
-                    <img src="<?= asset_url() ?>Frontend/image/logo--2.svg" alt="logo" class="position-absolute  wow  bounceInRight" data-wow-delay="2s">
-                    <img src="<?= asset_url() ?>Frontend/image/logo--3.svg" alt="logo" class="position-absolute  wow bounceInLeft" data-wow-delay="2s">
-                    <img src="<?= asset_url() ?>Frontend/image/logo--4.svg" alt="logo" class="position-absolute  wow slideInDown" data-wow-delay="1s" data-wow-duration="3.5s">
+                    <img src="<?= asset_url_front() ?>image/logo--1.svg" alt="logo" class="position-absolute  wow fadeIn" data-wow-delay="1s" data-wow-duration="5s">
+                    <img src="<?= asset_url_front() ?>image/logo--2.svg" alt="logo" class="position-absolute  wow  bounceInRight" data-wow-delay="2s">
+                    <img src="<?= asset_url_front() ?>image/logo--3.svg" alt="logo" class="position-absolute  wow bounceInLeft" data-wow-delay="2s">
+                    <img src="<?= asset_url_front() ?>image/logo--4.svg" alt="logo" class="position-absolute  wow slideInDown" data-wow-delay="1s" data-wow-duration="3.5s">
                 </div>
                 <div class="d-flex justify-content-center align-items-center h-50 text-white">
                     <h4 id="typing-big-banner" class="flex-column text-shadow  d-none d-sm-block"></h4>
@@ -75,7 +75,7 @@
                     <div class="card  bg-transparent border-0 mt-3 wow fadeInRight" data-wow-delay=".3s" data-wow-offset="250">
                         <div class="card-body">
                             <div class="card-img">
-                                <img src="<?= asset_url() ?>Frontend/image/programming.svg" alt="programming" class="img-fluid w-50 d-block m-auto ">
+                                <img src="<?= asset_url_front() ?>image/programming.svg" alt="programming" class="img-fluid w-50 d-block m-auto ">
                             </div>
                             <div class="card-text mt-4">
                                 <p class=" text-justify"> طراحی کاملا اختصاصی : با ویژگی های منحصر به فرد با قابلیت
@@ -88,7 +88,7 @@
                     <div class="card  bg-transparent border-0 mt-3 wow fadeInRight" data-wow-delay=".6s" data-wow-offset="250">
                         <div class="card-body">
                             <div class="card-img">
-                                <img src="<?= asset_url() ?>Frontend/image/engine.svg" alt="website" class="img-fluid w-50 d-block m-auto ">
+                                <img src="<?= asset_url_front() ?>image/engine.svg" alt="website" class="img-fluid w-50 d-block m-auto ">
                             </div>
                             <div class="card-text mt-4">
                                 <p class=" text-justify">seo سایت : این عبارت مخفف Search Engine optimization یا
@@ -104,7 +104,7 @@
                     <div class="card bg-transparent border-0 mt-3  wow fadeInLeft" data-wow-delay=".6s" data-wow-offset="250">
                         <div class="card-body ">
                             <div class="card-img">
-                                <img src="<?= asset_url() ?>Frontend/image/responsive.svg" alt="programming" class="img-fluid w-50 d-block m-auto ">
+                                <img src="<?= asset_url_front() ?>image/responsive.svg" alt="programming" class="img-fluid w-50 d-block m-auto ">
                             </div>
                             <div class="card-text mt-4">
                                 <p class=" text-justify"> طراحی ریسپانسیو : با توجه به افزایش مراجعه‌ کنندگان به
@@ -120,7 +120,7 @@
                     <div class="card bg-transparent border-0 mt-3  wow fadeInLeft" data-wow-delay=".3s" data-wow-offset="250">
                         <div class="card-body ">
                             <div class="card-img">
-                                <img src="<?= asset_url() ?>Frontend/image/timer.svg" alt="programming" class="img-fluid w-50 d-block m-auto ">
+                                <img src="<?= asset_url_front() ?>image/timer.svg" alt="programming" class="img-fluid w-50 d-block m-auto ">
                             </div>
                             <div class="card-text mt-4">
                                 <p class=" text-justify">سرعت loading : بهینه سازی عملکرد و افزایش سرعت بارگذاری
@@ -277,7 +277,7 @@
     </div>
 </section>
 
-<section id="nemonekar">
+<section id="work_samples">
     <div class="container">
         <div class="row mt-3 mb-3">
             <div class="col-12">
@@ -295,7 +295,7 @@
                                 <p class="text-center font-small"> سایت شرکتی</p>
                             </div>
                             <div class="flip-box-back d-flex justify-content-center bg-light shadow">
-                                <img src="<?= asset_url() ?>Frontend/image/Type-design-company.jpg" alt="contract_management">
+                                <img src="<?= asset_url_front() ?>image/Type-design-company.jpg" alt="contract_management">
                             </div>
                         </div>
                     </div>
@@ -310,7 +310,7 @@
                                 <p class="text-center font-small"> سایت فروشگاهی</p>
                             </div>
                             <div class="flip-box-back d-flex justify-content-center bg-light shadow">
-                                <img src="<?= asset_url() ?>Frontend/image/Type-design-store.jpg" alt="contract_management">
+                                <img src="<?= asset_url_front() ?>image/Type-design-store.jpg" alt="contract_management">
                             </div>
                         </div>
                     </div>
@@ -325,7 +325,7 @@
                                 <p class="text-center font-small">سایت شخصی</p>
                             </div>
                             <div class="flip-box-back d-flex justify-content-center bg-light shadow">
-                                <img src="<?= asset_url() ?>Frontend/image/Type-design-personal.jpg" alt="contract_management">
+                                <img src="<?= asset_url_front() ?>image/Type-design-personal.jpg" alt="contract_management">
                             </div>
                         </div>
                     </div>
@@ -352,7 +352,7 @@
         <div class="container max-width-lg">
             <div class="row">
                 <div class="col-sm-4  d-flex ">
-                    <img src="<?= asset_url() ?>Frontend/image/darkhast.png" alt="darkhast" class="bg-white img-thumbnail justify-content-center align-self-center shadow d-none d-sm-block">
+                    <img src="<?= asset_url_front() ?>image/darkhast.png" alt="darkhast" class="bg-white img-thumbnail justify-content-center align-self-center shadow d-none d-sm-block">
                 </div>
                 <div class="col-sm-8 mt-3 mb-4">
                     <div class="card bg-light rounded shadow ">

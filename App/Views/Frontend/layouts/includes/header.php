@@ -42,7 +42,7 @@
         </a>
 
         <a id="image-logo" href="index.php" class="position-absolute d-block cursor-pointer" style="left: 4em; top: .2em;">
-            <img class=" " src="<?= asset_url() ?>Frontend/image/logo.svg" alt="webzad">
+            <img class=" " src="<?= asset_url_front() ?>image/logo.svg" alt="webzad">
         </a>
     </div>
 </nav>

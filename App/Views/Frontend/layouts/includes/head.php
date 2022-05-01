@@ -8,9 +8,9 @@
 <meta property="og:description" content="درباره من :اینجانب مهرزاد تاج کریمی دانش آموخته در مجتمع فنی تهران به مدت دوسال در زمینه طراحی و برنامه نویسی وب سایت فعالیت میکنم.بسیار پر انرژی تو زمینه کاری خودم چون واقعا عاشق کارم هستم. " />
 <meta property="og:type" content="Content" />
 <title> وب زاد|وب سایت شخصی مهرزاد تاج کریمی | توسعه دهنده وب سایت</title>
-<link rel="icon" href="<?= asset_url() ?>Frontend/image/icon.png" type="image/png">
-<link rel="stylesheet" href="<?= asset_url() ?>Frontend/css/bootstrap.min.css">
-<link rel="stylesheet" href="<?= asset_url() ?>Frontend/css/animate.css">
-<link rel="stylesheet" href="<?= asset_url() ?>Frontend/css/style.css">
-<script src="<?= asset_url() ?>Frontend/js/jquery-2.1.3.min.js"></script>
-<script src="<?= asset_url() ?>Frontend/js/typed.min.js"></script>
+<link rel="icon" href="<?= asset_url_front() ?>image/icon.png" type="image/png">
+<link rel="stylesheet" href="<?= asset_url_front() ?>css/bootstrap.min.css">
+<link rel="stylesheet" href="<?= asset_url_front() ?>css/animate.css">
+<link rel="stylesheet" href="<?= asset_url_front() ?>css/style.css">
+<script src="<?= asset_url_front() ?>js/jquery.min.js"></script>
+<script src="<?= asset_url_front() ?>js/typed.min.js"></script>
