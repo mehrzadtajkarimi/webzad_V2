@@ -29,7 +29,6 @@
                 </div>
                 <div class="w-75 m-auto">
                     <a class="a text-info d-block text-center" href="mailto:mehrzadtajkarimi@gmail.com">
-                        <?= $option['email'] ?>
                     </a>
                 </div>
 

@@ -18,11 +18,11 @@ function base_url_admin($route = null)
 }
 function asset_url_front($route = null)
 {
-    return  base_url('Public/Assets/Frontend/' . $route);
+    return  base_url('Assets/Frontend/' . $route);
 }
 function asset_url_back($route = null)
 {
-    return  base_url('Public/Assets/Backend' . $route);
+    return  base_url('Assets/Backend/' . $route);
 }
 function view($path, $data = [], $layout = null)
 {
